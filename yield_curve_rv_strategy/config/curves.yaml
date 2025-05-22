@@ -1,0 +1,19 @@
+spreads:
+  "2s10s":
+    front_leg_fred: "DGS2"
+    back_leg_fred: "DGS10"
+    front_ticker_yahoo: "ZT=F"  # 2-year T-Note Future
+    back_ticker_yahoo: "ZN=F"   # 10-year T-Note Future
+    dv01_front: 18.50           # Example DV01 for ZT (per $100k notional, can vary)
+    dv01_back: 85.20            # Example DV01 for ZN (per $100k notional, can vary)
+    hedge_ratio: 4.60           # Example: 85.20 / 18.50 (approx)
+    model_types: ["xgboost", "arima", "lstm"]
+  "5s30s":
+    front_leg_fred: "DGS5"
+    back_leg_fred: "DGS30"
+    front_ticker_yahoo: "ZF=F"  # 5-year T-Note Future
+    back_ticker_yahoo: "ZB=F"   # 30-year T-Bond Future
+    dv01_front: 45.00
+    dv01_back: 200.00
+    hedge_ratio: 4.44
+    model_types: ["xgboost", "arima"]

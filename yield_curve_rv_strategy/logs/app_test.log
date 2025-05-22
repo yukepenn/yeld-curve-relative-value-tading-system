@@ -1,0 +1,8 @@
+2025-05-22 03:03:08,410 - root - INFO - app_logger:89 - Logging to file: /app/yield_curve_rv_strategy/logs/app_test.log at level DEBUG
+2025-05-22 03:03:08,411 - root - INFO - app_logger:105 - Logging system (re)configured. Root logger level: DEBUG.
+2025-05-22 03:03:08,411 - Test2.FileConsole - DEBUG - app_logger:136 - T2 DEBUG: Should appear on console and in file 'logs/app_test.log'.
+2025-05-22 03:03:08,411 - Test2.FileConsole - INFO - app_logger:137 - T2 INFO: Should appear on console and in file 'logs/app_test.log'.
+2025-05-22 03:03:08,411 - Test1.Console - DEBUG - app_logger:140 - T1 DEBUG (after T2 setup): Should now appear on console and in file.
+2025-05-22 03:03:08,411 - Test3.Warning - WARNING - app_logger:152 - T3 WARNING: Should appear on console and in file 'logs/app_test.log'.
+2025-05-22 03:03:08,411 - Test1.Console - WARNING - app_logger:156 - T1 WARNING (after T3 setup): Should appear on console and file.
+2025-05-22 03:03:08,411 - Test2.FileConsole - WARNING - app_logger:158 - T2 WARNING (after T3 setup): Should appear on console and file.

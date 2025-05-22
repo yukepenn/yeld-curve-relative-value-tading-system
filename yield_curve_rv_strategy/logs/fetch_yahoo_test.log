@@ -1,0 +1,338 @@
+2025-05-22 03:08:35,845 - root - INFO - app_logger:89 - Logging to file: /app/yield_curve_rv_strategy/logs/fetch_yahoo_test.log at level DEBUG
+2025-05-22 03:08:35,845 - root - INFO - app_logger:105 - Logging system (re)configured. Root logger level: DEBUG.
+2025-05-22 03:08:35,845 - __main__ - INFO - fetch_yahoo:153 - --- Running fetch_yahoo.py tests ---
+2025-05-22 03:08:35,845 - __main__ - INFO - fetch_yahoo:164 - --- Test 1: Fetching single stock symbol (AAPL) ---
+2025-05-22 03:08:35,845 - __main__ - INFO - fetch_yahoo:60 - Fetching Yahoo Finance data for AAPL from 2023-01-01 to 2023-02-01
+2025-05-22 03:08:35,845 - yfinance - DEBUG - utils:96 - Entering history()
+2025-05-22 03:08:35,860 - peewee - DEBUG - peewee:3319 - ('CREATE TABLE IF NOT EXISTS "_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+2025-05-22 03:08:35,863 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AAPL', 1, 0])
+2025-05-22 03:08:35,864 - yfinance - DEBUG - utils:96 -  Entering _fetch_ticker_tz()
+2025-05-22 03:08:35,864 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:35,864 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:35,864 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2025-05-22 03:08:35,864 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'range': '1d', 'interval': '1d'})
+2025-05-22 03:08:35,864 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:35,864 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:35,864 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:35,864 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:35,865 - yfinance - DEBUG - utils:96 -        Entering _load_cookie_curlCffi()
+2025-05-22 03:08:35,867 - peewee - DEBUG - peewee:3319 - ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+2025-05-22 03:08:35,870 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2025-05-22 03:08:35,870 - yfinance - DEBUG - utils:101 -        Exiting _load_cookie_curlCffi()
+2025-05-22 03:08:35,928 - yfinance - DEBUG - utils:96 -        Entering _save_cookie_curlCffi()
+2025-05-22 03:08:35,928 - peewee - DEBUG - peewee:3319 - ('DELETE FROM "_cookieschema" WHERE ("_cookieschema"."strategy" = ?)', ['curlCffi'])
+2025-05-22 03:08:35,929 - peewee - DEBUG - peewee:3319 - ('BEGIN', None)
+2025-05-22 03:08:35,929 - peewee - DEBUG - peewee:3319 - ('INSERT INTO "_cookieschema" ("strategy", "fetch_date", "cookie_bytes") VALUES (?, ?, ?)', ['curlCffi', '2025-05-22T03:08:35.929460', <memory at 0x7f39f5003100>])
+2025-05-22 03:08:35,931 - yfinance - DEBUG - utils:101 -        Exiting _save_cookie_curlCffi()
+2025-05-22 03:08:35,931 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:35,931 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:35,931 - yfinance - DEBUG - utils:96 -        Entering _get_cookie_basic()
+2025-05-22 03:08:35,931 - yfinance - DEBUG - utils:96 -         Entering _load_cookie_curlCffi()
+2025-05-22 03:08:35,931 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2025-05-22 03:08:35,932 - yfinance - DEBUG - utils:101 -         Exiting _load_cookie_curlCffi()
+2025-05-22 03:08:35,932 - yfinance - DEBUG - data:190 - reusing persistent cookie
+2025-05-22 03:08:35,932 - yfinance - DEBUG - utils:101 -        Exiting _get_cookie_basic()
+2025-05-22 03:08:36,003 - yfinance - DEBUG - data:230 - crumb = 'BYMgaUn39iZ'
+2025-05-22 03:08:36,003 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:36,003 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:36,004 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:38,663 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:38,664 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:38,664 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:38,664 - yfinance - DEBUG - utils:101 -  Exiting _fetch_ticker_tz()
+2025-05-22 03:08:38,714 - peewee - DEBUG - peewee:3319 - ('BEGIN', None)
+2025-05-22 03:08:38,714 - peewee - DEBUG - peewee:3319 - ('INSERT INTO "_kv" ("key", "value") VALUES (?, ?)', ['AAPL', 'America/New_York'])
+2025-05-22 03:08:38,716 - yfinance - DEBUG - utils:96 -  Entering history()
+2025-05-22 03:08:38,720 - yfinance - DEBUG - history:165 - AAPL: Yahoo GET parameters: {'period1': '2023-01-01 00:00:00-05:00', 'period2': '2023-02-01 00:00:00-05:00', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-05-22 03:08:38,720 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:38,720 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:38,721 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2025-05-22 03:08:38,721 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'period1': 1672549200, 'period2': 1675227600, 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'})
+2025-05-22 03:08:38,721 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:38,721 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:38,721 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:38,721 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:38,721 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:38,721 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:38,721 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:38,721 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:38,722 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:38,722 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:38,722 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:40,604 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:40,604 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:40,604 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:40,613 - yfinance - DEBUG - history:281 - AAPL: yfinance received OHLC data: 2023-01-03 14:30:00 -> 2023-01-31 14:30:00
+2025-05-22 03:08:40,619 - yfinance - DEBUG - history:318 - AAPL: OHLC after cleaning: 2023-01-03 09:30:00-05:00 -> 2023-01-31 09:30:00-05:00
+2025-05-22 03:08:40,628 - yfinance - DEBUG - history:388 - AAPL: OHLC after combining events: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:40,638 - yfinance - DEBUG - history:467 - AAPL: yfinance returning OHLC: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:40,638 - yfinance - DEBUG - utils:101 -  Exiting history()
+2025-05-22 03:08:40,639 - yfinance - DEBUG - utils:101 - Exiting history()
+2025-05-22 03:08:40,639 - __main__ - INFO - fetch_yahoo:79 - Successfully fetched 20 data points for AAPL.
+2025-05-22 03:08:40,642 - __main__ - INFO - fetch_yahoo:104 - Saved data for AAPL to /app/yield_curve_rv_strategy/data/raw/AAPL_yahoo.csv
+2025-05-22 03:08:40,642 - __main__ - INFO - fetch_yahoo:167 - Successfully fetched AAPL data. Shape: (20, 7). Columns: ['Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
+2025-05-22 03:08:40,642 - __main__ - INFO - fetch_yahoo:173 - --- Test 2: Fetching future symbol (ZN=F) ---
+2025-05-22 03:08:40,642 - __main__ - INFO - fetch_yahoo:60 - Fetching Yahoo Finance data for ZN=F from 2023-01-01 to 2023-02-01
+2025-05-22 03:08:40,643 - yfinance - DEBUG - utils:96 - Entering history()
+2025-05-22 03:08:40,644 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ZN=F', 1, 0])
+2025-05-22 03:08:40,646 - yfinance - DEBUG - utils:96 -  Entering _fetch_ticker_tz()
+2025-05-22 03:08:40,646 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:40,646 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:40,646 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/ZN=F
+2025-05-22 03:08:40,646 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'range': '1d', 'interval': '1d'})
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:40,647 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:40,647 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:40,647 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:40,647 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:43,287 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:43,287 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:43,287 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:43,287 - yfinance - DEBUG - utils:101 -  Exiting _fetch_ticker_tz()
+2025-05-22 03:08:43,287 - peewee - DEBUG - peewee:3319 - ('BEGIN', None)
+2025-05-22 03:08:43,288 - peewee - DEBUG - peewee:3319 - ('INSERT INTO "_kv" ("key", "value") VALUES (?, ?)', ['ZN=F', 'America/New_York'])
+2025-05-22 03:08:43,291 - yfinance - DEBUG - utils:96 -  Entering history()
+2025-05-22 03:08:43,292 - yfinance - DEBUG - history:165 - ZN=F: Yahoo GET parameters: {'period1': '2023-01-01 00:00:00-05:00', 'period2': '2023-02-01 00:00:00-05:00', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-05-22 03:08:43,292 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:43,292 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:43,292 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/ZN=F
+2025-05-22 03:08:43,293 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'period1': 1672549200, 'period2': 1675227600, 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'})
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:43,293 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:43,293 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:43,293 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:43,293 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:45,167 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:45,168 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:45,168 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:45,174 - yfinance - DEBUG - history:281 - ZN=F: yfinance received OHLC data: 2023-01-03 05:00:00 -> 2023-01-31 05:00:00
+2025-05-22 03:08:45,177 - yfinance - DEBUG - history:318 - ZN=F: OHLC after cleaning: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:45,183 - yfinance - DEBUG - history:388 - ZN=F: OHLC after combining events: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:45,192 - yfinance - DEBUG - history:467 - ZN=F: yfinance returning OHLC: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:45,192 - yfinance - DEBUG - utils:101 -  Exiting history()
+2025-05-22 03:08:45,192 - yfinance - DEBUG - utils:101 - Exiting history()
+2025-05-22 03:08:45,193 - __main__ - INFO - fetch_yahoo:79 - Successfully fetched 20 data points for ZN=F.
+2025-05-22 03:08:45,195 - __main__ - INFO - fetch_yahoo:104 - Saved data for ZN=F to /app/yield_curve_rv_strategy/data/raw/ZN_F_yahoo.csv
+2025-05-22 03:08:45,195 - __main__ - INFO - fetch_yahoo:178 - Successfully fetched ZN=F data. Shape: (20, 7). Columns: ['Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
+2025-05-22 03:08:45,195 - __main__ - INFO - fetch_yahoo:184 - --- Test 3: Fetching multiple symbols (ES=F, NQ=F, INVALIDTICKERXYZ) ---
+2025-05-22 03:08:45,195 - __main__ - INFO - fetch_yahoo:60 - Fetching Yahoo Finance data for ES=F from 2023-01-01 to 2023-02-01
+2025-05-22 03:08:45,195 - yfinance - DEBUG - utils:96 - Entering history()
+2025-05-22 03:08:45,196 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ES=F', 1, 0])
+2025-05-22 03:08:45,197 - yfinance - DEBUG - utils:96 -  Entering _fetch_ticker_tz()
+2025-05-22 03:08:45,198 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:45,198 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:45,198 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/ES=F
+2025-05-22 03:08:45,198 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'range': '1d', 'interval': '1d'})
+2025-05-22 03:08:45,198 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:45,198 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:45,198 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:45,198 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:45,198 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:45,198 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:45,198 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:45,199 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:45,199 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:45,199 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:45,199 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:47,414 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:47,414 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:47,414 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:47,414 - yfinance - DEBUG - utils:101 -  Exiting _fetch_ticker_tz()
+2025-05-22 03:08:47,415 - peewee - DEBUG - peewee:3319 - ('BEGIN', None)
+2025-05-22 03:08:47,415 - peewee - DEBUG - peewee:3319 - ('INSERT INTO "_kv" ("key", "value") VALUES (?, ?)', ['ES=F', 'America/New_York'])
+2025-05-22 03:08:47,416 - yfinance - DEBUG - utils:96 -  Entering history()
+2025-05-22 03:08:47,417 - yfinance - DEBUG - history:165 - ES=F: Yahoo GET parameters: {'period1': '2023-01-01 00:00:00-05:00', 'period2': '2023-02-01 00:00:00-05:00', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-05-22 03:08:47,417 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:47,417 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:47,417 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/ES=F
+2025-05-22 03:08:47,417 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'period1': 1672549200, 'period2': 1675227600, 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'})
+2025-05-22 03:08:47,417 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:47,417 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:47,418 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:47,418 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:47,418 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:47,418 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:47,418 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:47,418 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:47,418 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:47,418 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:47,418 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:49,136 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:49,136 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:49,136 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:49,138 - yfinance - DEBUG - history:281 - ES=F: yfinance received OHLC data: 2023-01-03 05:00:00 -> 2023-01-31 05:00:00
+2025-05-22 03:08:49,139 - yfinance - DEBUG - history:318 - ES=F: OHLC after cleaning: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:49,144 - yfinance - DEBUG - history:388 - ES=F: OHLC after combining events: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:49,150 - yfinance - DEBUG - history:467 - ES=F: yfinance returning OHLC: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:49,150 - yfinance - DEBUG - utils:101 -  Exiting history()
+2025-05-22 03:08:49,150 - yfinance - DEBUG - utils:101 - Exiting history()
+2025-05-22 03:08:49,150 - __main__ - INFO - fetch_yahoo:79 - Successfully fetched 20 data points for ES=F.
+2025-05-22 03:08:49,151 - __main__ - INFO - fetch_yahoo:104 - Saved data for ES=F to /app/yield_curve_rv_strategy/data/raw/ES_F_yahoo.csv
+2025-05-22 03:08:49,152 - __main__ - INFO - fetch_yahoo:60 - Fetching Yahoo Finance data for NQ=F from 2023-01-01 to 2023-02-01
+2025-05-22 03:08:49,152 - yfinance - DEBUG - utils:96 - Entering history()
+2025-05-22 03:08:49,152 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NQ=F', 1, 0])
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:96 -  Entering _fetch_ticker_tz()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/NQ=F
+2025-05-22 03:08:49,153 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'range': '1d', 'interval': '1d'})
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:49,153 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:49,154 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:49,154 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:49,154 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:50,928 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:50,928 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:50,928 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:50,928 - yfinance - DEBUG - utils:101 -  Exiting _fetch_ticker_tz()
+2025-05-22 03:08:50,928 - peewee - DEBUG - peewee:3319 - ('BEGIN', None)
+2025-05-22 03:08:50,929 - peewee - DEBUG - peewee:3319 - ('INSERT INTO "_kv" ("key", "value") VALUES (?, ?)', ['NQ=F', 'America/New_York'])
+2025-05-22 03:08:50,931 - yfinance - DEBUG - utils:96 -  Entering history()
+2025-05-22 03:08:50,931 - yfinance - DEBUG - history:165 - NQ=F: Yahoo GET parameters: {'period1': '2023-01-01 00:00:00-05:00', 'period2': '2023-02-01 00:00:00-05:00', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2025-05-22 03:08:50,931 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/NQ=F
+2025-05-22 03:08:50,932 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'period1': 1672549200, 'period2': 1675227600, 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'})
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:50,932 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:53,285 - yfinance - DEBUG - data:399 - response code=200
+2025-05-22 03:08:53,286 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:53,286 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:53,288 - yfinance - DEBUG - history:281 - NQ=F: yfinance received OHLC data: 2023-01-03 05:00:00 -> 2023-01-31 05:00:00
+2025-05-22 03:08:53,289 - yfinance - DEBUG - history:318 - NQ=F: OHLC after cleaning: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:53,293 - yfinance - DEBUG - history:388 - NQ=F: OHLC after combining events: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:53,299 - yfinance - DEBUG - history:467 - NQ=F: yfinance returning OHLC: 2023-01-03 00:00:00-05:00 -> 2023-01-31 00:00:00-05:00
+2025-05-22 03:08:53,299 - yfinance - DEBUG - utils:101 -  Exiting history()
+2025-05-22 03:08:53,299 - yfinance - DEBUG - utils:101 - Exiting history()
+2025-05-22 03:08:53,299 - __main__ - INFO - fetch_yahoo:79 - Successfully fetched 20 data points for NQ=F.
+2025-05-22 03:08:53,301 - __main__ - INFO - fetch_yahoo:104 - Saved data for NQ=F to /app/yield_curve_rv_strategy/data/raw/NQ_F_yahoo.csv
+2025-05-22 03:08:53,301 - __main__ - INFO - fetch_yahoo:60 - Fetching Yahoo Finance data for INVALIDTICKERXYZ from 2023-01-01 to 2023-02-01
+2025-05-22 03:08:53,301 - yfinance - DEBUG - utils:96 - Entering history()
+2025-05-22 03:08:53,301 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."key", "t1"."value" FROM "_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['INVALIDTICKERXYZ', 1, 0])
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:96 -  Entering _fetch_ticker_tz()
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:96 -   Entering get()
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:96 -    Entering _make_request()
+2025-05-22 03:08:53,302 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v8/finance/chart/INVALIDTICKERXYZ
+2025-05-22 03:08:53,302 - yfinance - DEBUG - data:376 - params=frozendict.frozendict({'range': '1d', 'interval': '1d'})
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:53,302 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:08:53,302 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:08:53,302 - yfinance - DEBUG - utils:96 -       Entering _get_crumb_basic()
+2025-05-22 03:08:53,303 - yfinance - DEBUG - data:209 - reusing crumb
+2025-05-22 03:08:53,303 - yfinance - DEBUG - utils:101 -       Exiting _get_crumb_basic()
+2025-05-22 03:08:53,303 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:08:53,303 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:54,995 - yfinance - DEBUG - data:399 - response code=404
+2025-05-22 03:08:54,995 - yfinance - DEBUG - data:129 - toggling cookie strategy basic -> csrf
+2025-05-22 03:08:54,995 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb()
+2025-05-22 03:08:54,995 - yfinance - DEBUG - data:341 - cookie_mode = 'csrf'
+2025-05-22 03:08:54,995 - yfinance - DEBUG - utils:96 -      Entering _get_crumb_csrf()
+2025-05-22 03:08:54,995 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_csrf()
+2025-05-22 03:08:54,995 - yfinance - DEBUG - utils:96 -        Entering _load_cookie_curlCffi()
+2025-05-22 03:08:54,996 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2025-05-22 03:08:54,997 - yfinance - DEBUG - utils:101 -        Exiting _load_cookie_curlCffi()
+2025-05-22 03:08:54,997 - yfinance - DEBUG - data:246 - reusing persistent cookie
+2025-05-22 03:08:54,997 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_csrf()
+2025-05-22 03:08:56,973 - yfinance - DEBUG - data:334 - crumb = 'BYMgaUn39iZ'
+2025-05-22 03:08:56,973 - yfinance - DEBUG - utils:101 -      Exiting _get_crumb_csrf()
+2025-05-22 03:08:56,973 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb()
+2025-05-22 03:08:58,973 - yfinance - DEBUG - data:409 - response code=404
+2025-05-22 03:08:58,973 - yfinance - DEBUG - utils:101 -    Exiting _make_request()
+2025-05-22 03:08:58,973 - yfinance - DEBUG - utils:101 -   Exiting get()
+2025-05-22 03:08:58,973 - yfinance - DEBUG - base:161 - Got error from yahoo api for ticker INVALIDTICKERXYZ, Error: {'code': 'Not Found', 'description': 'No data found, symbol may be delisted'}
+2025-05-22 03:08:58,973 - yfinance - DEBUG - utils:101 -  Exiting _fetch_ticker_tz()
+2025-05-22 03:08:58,973 - yfinance - DEBUG - data:423 - get_raw_json(): https://query2.finance.yahoo.com/v10/finance/quoteSummary/INVALIDTICKERXYZ
+2025-05-22 03:08:58,973 - yfinance - DEBUG - utils:96 -  Entering get()
+2025-05-22 03:08:58,973 - yfinance - DEBUG - utils:96 -   Entering _make_request()
+2025-05-22 03:08:58,973 - yfinance - DEBUG - data:375 - url=https://query2.finance.yahoo.com/v10/finance/quoteSummary/INVALIDTICKERXYZ
+2025-05-22 03:08:58,973 - yfinance - DEBUG - data:376 - params={'modules': 'financialData,quoteType,defaultKeyStatistics,assetProfile,summaryDetail', 'corsDomain': 'finance.yahoo.com', 'formatted': 'false', 'symbol': 'INVALIDTICKERXYZ'}
+2025-05-22 03:08:58,974 - yfinance - DEBUG - utils:96 -    Entering _get_cookie_and_crumb()
+2025-05-22 03:08:58,974 - yfinance - DEBUG - data:341 - cookie_mode = 'csrf'
+2025-05-22 03:08:58,974 - yfinance - DEBUG - utils:96 -     Entering _get_crumb_csrf()
+2025-05-22 03:08:58,974 - yfinance - DEBUG - data:313 - reusing crumb
+2025-05-22 03:08:58,974 - yfinance - DEBUG - utils:101 -     Exiting _get_crumb_csrf()
+2025-05-22 03:08:58,974 - yfinance - DEBUG - utils:101 -    Exiting _get_cookie_and_crumb()
+2025-05-22 03:09:00,578 - yfinance - DEBUG - data:399 - response code=404
+2025-05-22 03:09:00,579 - yfinance - DEBUG - data:125 - toggling cookie strategy csrf -> basic
+2025-05-22 03:09:00,579 - yfinance - DEBUG - utils:96 -    Entering _get_cookie_and_crumb()
+2025-05-22 03:09:00,579 - yfinance - DEBUG - data:341 - cookie_mode = 'basic'
+2025-05-22 03:09:00,579 - yfinance - DEBUG - utils:96 -     Entering _get_cookie_and_crumb_basic()
+2025-05-22 03:09:00,579 - yfinance - DEBUG - utils:96 -      Entering _get_cookie_basic()
+2025-05-22 03:09:00,579 - yfinance - DEBUG - utils:96 -       Entering _load_cookie_curlCffi()
+2025-05-22 03:09:00,579 - peewee - DEBUG - peewee:3319 - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2025-05-22 03:09:00,580 - yfinance - DEBUG - utils:101 -       Exiting _load_cookie_curlCffi()
+2025-05-22 03:09:00,580 - yfinance - DEBUG - data:190 - reusing persistent cookie
+2025-05-22 03:09:00,580 - yfinance - DEBUG - utils:101 -      Exiting _get_cookie_basic()
+2025-05-22 03:09:00,580 - yfinance - DEBUG - utils:96 -      Entering _get_crumb_basic()
+2025-05-22 03:09:00,580 - yfinance - DEBUG - utils:96 -       Entering _get_cookie_basic()
+2025-05-22 03:09:00,580 - yfinance - DEBUG - data:187 - reusing cookie
+2025-05-22 03:09:00,580 - yfinance - DEBUG - utils:101 -       Exiting _get_cookie_basic()
+2025-05-22 03:09:00,797 - yfinance - DEBUG - data:230 - crumb = 'BYMgaUn39iZ'
+2025-05-22 03:09:00,797 - yfinance - DEBUG - utils:101 -      Exiting _get_crumb_basic()
+2025-05-22 03:09:00,797 - yfinance - DEBUG - utils:101 -     Exiting _get_cookie_and_crumb_basic()
+2025-05-22 03:09:00,797 - yfinance - DEBUG - utils:101 -    Exiting _get_cookie_and_crumb()
+2025-05-22 03:09:02,499 - yfinance - DEBUG - data:409 - response code=404
+2025-05-22 03:09:02,500 - yfinance - DEBUG - utils:101 -   Exiting _make_request()
+2025-05-22 03:09:02,500 - yfinance - DEBUG - utils:101 -  Exiting get()
+2025-05-22 03:09:02,500 - __main__ - ERROR - fetch_yahoo:112 - Error fetching or processing data for symbol INVALIDTICKERXYZ: HTTP Error 404: 
+Traceback (most recent call last):
+  File "/app/yield_curve_rv_strategy/src/data/fetch_yahoo.py", line 70, in fetch_data
+    df = ticker.history(start=start_date, end=end_date)
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/utils.py", line 99, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/base.py", line 96, in history
+    return self._lazy_load_price_history().history(*args, **kwargs)
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/base.py", line 102, in _lazy_load_price_history
+    self._price_history = PriceHistory(self._data, self.ticker, self._get_ticker_tz(timeout=10))
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/base.py", line 127, in _get_ticker_tz
+    if k in self.info:
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/ticker.py", line 159, in info
+    return self.get_info()
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/base.py", line 293, in get_info
+    data = self._quote.info
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/scrapers/quote.py", line 511, in info
+    self._fetch_info()
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/scrapers/quote.py", line 610, in _fetch_info
+    result = self._fetch(modules=modules)
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/scrapers/quote.py", line 590, in _fetch
+    result = self._data.get_raw_json(_QUOTE_SUMMARY_URL_ + f"/{self._symbol}", params=params_dict)
+  File "/home/swebot/.local/lib/python3.10/site-packages/yfinance/data.py", line 425, in get_raw_json
+    response.raise_for_status()
+  File "/home/swebot/.local/lib/python3.10/site-packages/curl_cffi/requests/models.py", line 167, in raise_for_status
+    raise HTTPError(f"HTTP Error {self.status_code}: {self.reason}", 0, self)
+curl_cffi.requests.exceptions.HTTPError: HTTP Error 404: 
+2025-05-22 03:09:02,502 - __main__ - INFO - fetch_yahoo:137 - Finished fetching data for multiple symbols. Requested: 3, Successfully fetched (non-None): 2
+2025-05-22 03:09:02,502 - __main__ - INFO - fetch_yahoo:190 - Data for ES=F (Test 3) fetched. Shape: (20, 7). Columns: ['Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
+2025-05-22 03:09:02,502 - __main__ - INFO - fetch_yahoo:190 - Data for NQ=F (Test 3) fetched. Shape: (20, 7). Columns: ['Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
+2025-05-22 03:09:02,502 - __main__ - WARNING - fetch_yahoo:192 - Fetching data for INVALIDTICKERXYZ (Test 3) returned None (expected for INVALIDTICKERXYZ if it's truly invalid).
+2025-05-22 03:09:02,502 - __main__ - INFO - fetch_yahoo:196 - --- fetch_yahoo.py tests complete ---

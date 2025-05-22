@@ -1,0 +1,4 @@
+2025-05-22 03:03:08,411 - root - INFO - app_logger:89 - Logging to file: /app/yield_curve_rv_strategy/logs/app_test_new.log at level INFO
+2025-05-22 03:03:08,411 - root - INFO - app_logger:105 - Logging system (re)configured. Root logger level: INFO.
+2025-05-22 03:03:08,411 - Test4.NewFile - INFO - app_logger:166 - T4 INFO: Should appear on console and in new file 'logs/app_test_new.log'.
+2025-05-22 03:03:08,411 - Test3.Warning - WARNING - app_logger:167 - T3 WARNING (after T4 setup): Should appear on console and in NEW file (since root level allows WARNING).

@@ -1,0 +1,18 @@
+2025-05-22 03:12:09,490 - root - INFO - app_logger:89 - Logging to file: /app/yield_curve_rv_strategy/logs/fetch_fred_test.log at level DEBUG
+2025-05-22 03:12:09,490 - root - INFO - app_logger:105 - Logging system (re)configured. Root logger level: DEBUG.
+2025-05-22 03:12:09,490 - __main__ - INFO - fetch_fred:119 - --- Running fetch_fred.py tests ---
+2025-05-22 03:12:09,490 - __main__ - WARNING - fetch_fred:124 - FRED API key is the placeholder 'YOUR_FRED_API_KEY'.
+2025-05-22 03:12:09,490 - __main__ - WARNING - fetch_fred:125 - Actual data fetching tests will be skipped or will fail.
+2025-05-22 03:12:09,490 - __main__ - WARNING - fetch_fred:126 - Please set a valid FRED_API_KEY in your config/config.yaml or provide one directly for testing.
+2025-05-22 03:12:09,490 - __main__ - INFO - fetch_fred:138 - --- Test 1: Fetching single series 'DGS10' ---
+2025-05-22 03:12:09,490 - __main__ - ERROR - fetch_fred:50 - FRED API key not provided or is placeholder for series DGS10. Cannot fetch data.
+2025-05-22 03:12:09,490 - __main__ - ERROR - fetch_fred:146 - Failed to fetch DGS10 data (returned None).
+2025-05-22 03:12:09,490 - __main__ - INFO - fetch_fred:151 - --- Test 2: Fetching single series 'GDP' (longer history) ---
+2025-05-22 03:12:09,491 - __main__ - ERROR - fetch_fred:50 - FRED API key not provided or is placeholder for series GDP. Cannot fetch data.
+2025-05-22 03:12:09,491 - __main__ - ERROR - fetch_fred:159 - Failed to fetch GDP data (returned None).
+2025-05-22 03:12:09,491 - __main__ - INFO - fetch_fred:163 - --- Test 3: Fetching multiple series: ['DGS2', 'DFII20', 'INVALIDFREDSERIES'] ---
+2025-05-22 03:12:09,491 - __main__ - ERROR - fetch_fred:103 - FRED API key not provided or is placeholder. Cannot fetch multiple series.
+2025-05-22 03:12:09,491 - __main__ - WARNING - fetch_fred:173 - Fetching data for DGS2 (Test 3) returned None (expected for INVALIDFREDSERIES or if API key issue).
+2025-05-22 03:12:09,491 - __main__ - WARNING - fetch_fred:173 - Fetching data for DFII20 (Test 3) returned None (expected for INVALIDFREDSERIES or if API key issue).
+2025-05-22 03:12:09,491 - __main__ - WARNING - fetch_fred:173 - Fetching data for INVALIDFREDSERIES (Test 3) returned None (expected for INVALIDFREDSERIES or if API key issue).
+2025-05-22 03:12:09,491 - __main__ - INFO - fetch_fred:175 - --- fetch_fred.py tests complete ---

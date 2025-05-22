@@ -1,0 +1,48 @@
+2025-05-22 03:20:02,069 - root - INFO - app_logger:89 - Logging to file: /app/yield_curve_rv_strategy/logs/yield_curve_features_test.log at level DEBUG
+2025-05-22 03:20:02,069 - root - INFO - app_logger:105 - Logging system (re)configured. Root logger level: DEBUG.
+2025-05-22 03:20:02,069 - __main__ - INFO - yield_curve:132 - --- Running yield_curve.py tests ---
+2025-05-22 03:20:02,072 - __main__ - INFO - yield_curve:141 - Test 1: Computing spread...
+2025-05-22 03:20:02,072 - __main__ - INFO - yield_curve:42 - Computed spread. Resulting series length: 100
+2025-05-22 03:20:02,075 - __main__ - INFO - yield_curve:144 - Spread computed. Head:
+2023-01-02    0.215235
+2023-01-03    1.063354
+2023-01-04    1.014430
+2023-01-05    0.991726
+2023-01-06    1.078800
+Freq: B, Name: yield_spread, dtype: float64
+2025-05-22 03:20:02,075 - __main__ - INFO - yield_curve:146 - 
+Test 2: Generating yield curve features...
+2025-05-22 03:20:02,077 - __main__ - INFO - yield_curve:68 - Generating yield curve features. Windows: [5, 10], Lags: [1, 3]
+2025-05-22 03:20:02,083 - __main__ - INFO - yield_curve:96 - Generated features DataFrame with shape: (100, 11)
+2025-05-22 03:20:02,099 - __main__ - INFO - yield_curve:149 - YC features generated. Shape: (100, 11). Head:
+            current_spread  spread_lag_1d  ...  spread_mom_10d  spread_zscore_10d
+2023-01-02        0.215235            NaN  ...             NaN           0.000000
+2023-01-03        1.063354       0.215235  ...             NaN           0.000000
+2023-01-04        1.014430       1.063354  ...             NaN           0.000000
+2023-01-05        0.991726       1.014430  ...             NaN           0.000000
+2023-01-06        1.078800       0.991726  ...             NaN           0.558156
+
+[5 rows x 11 columns]
+2025-05-22 03:20:02,099 - __main__ - INFO - yield_curve:153 - 
+Test 3: Generating target variable...
+2025-05-22 03:20:02,099 - __main__ - INFO - yield_curve:111 - Generating target for 1 period(s) ahead.
+2025-05-22 03:20:02,100 - __main__ - INFO - yield_curve:117 - Generated target series. Length: 100, Non-NaN: 99
+2025-05-22 03:20:02,100 - __main__ - INFO - yield_curve:156 - Target generated. Shape: (100,). Tail:
+2023-05-15   -0.033416
+2023-05-16    0.761628
+2023-05-17   -0.201497
+2023-05-18   -0.072715
+2023-05-19         NaN
+Freq: B, Name: target_spread_change_1d, dtype: float64
+2025-05-22 03:20:02,101 - __main__ - INFO - yield_curve:160 - 
+Test 4: Compute spread with misaligned series...
+2025-05-22 03:20:02,103 - __main__ - INFO - yield_curve:42 - Computed spread. Resulting series length: 50
+2025-05-22 03:20:02,103 - __main__ - INFO - yield_curve:166 - Spread (misaligned) computed. Length: 50.
+2025-05-22 03:20:02,103 - __main__ - INFO - yield_curve:168 - 
+Test 5: Empty series handling
+2025-05-22 03:20:02,103 - __main__ - WARNING - yield_curve:25 - One or both input series for spread computation are empty.
+2025-05-22 03:20:02,103 - __main__ - WARNING - yield_curve:25 - One or both input series for spread computation are empty.
+2025-05-22 03:20:02,103 - __main__ - WARNING - yield_curve:56 - Input spread_series is empty. Cannot generate features.
+2025-05-22 03:20:02,104 - __main__ - WARNING - yield_curve:105 - Input spread_series is empty. Cannot generate target.
+2025-05-22 03:20:02,104 - __main__ - INFO - yield_curve:174 - Empty series handling tests passed.
+2025-05-22 03:20:02,104 - __main__ - INFO - yield_curve:176 - --- yield_curve.py tests complete ---

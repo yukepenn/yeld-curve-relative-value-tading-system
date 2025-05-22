@@ -1,0 +1,63 @@
+2025-05-22 03:24:01,915 - root - INFO - app_logger:89 - Logging to file: /app/yield_curve_rv_strategy/logs/macro_features_test.log at level DEBUG
+2025-05-22 03:24:01,915 - root - INFO - app_logger:105 - Logging system (re)configured. Root logger level: DEBUG.
+2025-05-22 03:24:01,915 - __main__ - INFO - macro_features:103 - --- Running macro_features.py tests ---
+2025-05-22 03:24:01,928 - __main__ - INFO - macro_features:116 - Sample cleaned_data Head:
+                DGS2     DGS10  VIX_Close  SP500_Close  FEDFUNDS
+2023-01-02  1.596111  3.788233  15.285464  4235.196149       2.5
+2023-01-03  1.152327  3.669780  23.213206  3967.079223       2.5
+2023-01-04  1.628931  3.535115  20.286763  3878.597739       2.5
+2023-01-05  1.800397  2.381133  21.544660  3965.560992       2.5
+2023-01-06  1.404892  2.844424  19.204452  4239.569464       2.5
+2025-05-22 03:24:01,928 - __main__ - INFO - macro_features:119 - 
+Test 1: Generating macro features with default config...
+2025-05-22 03:24:01,929 - __main__ - INFO - macro_features:46 - Generating macro features using config: {'VIX_Close': {'type': 'level', 'lags': [1, 5, 20]}, 'SP500_Close': {'type': 'returns', 'windows': [1, 5, 20]}, 'FEDFUNDS': {'type': 'level_change', 'periods': [1, 22, 66]}}
+2025-05-22 03:24:01,930 - __main__ - DEBUG - macro_features:56 - Processing series: VIX_Close, type: level
+2025-05-22 03:24:01,932 - __main__ - DEBUG - macro_features:56 - Processing series: SP500_Close, type: returns
+2025-05-22 03:24:01,935 - __main__ - DEBUG - macro_features:56 - Processing series: FEDFUNDS, type: level_change
+2025-05-22 03:24:01,937 - __main__ - INFO - macro_features:91 - Generated macro features DataFrame with shape: (100, 10)
+2025-05-22 03:24:01,937 - __main__ - INFO - macro_features:126 - Macro features (default config) generated. Shape: (100, 10)
+2025-05-22 03:24:01,949 - __main__ - INFO - macro_features:127 - Head:
+            VIX_Close_level  ...  FEDFUNDS_chg_66d
+2023-01-02        15.285464  ...               NaN
+2023-01-03        23.213206  ...               NaN
+2023-01-04        20.286763  ...               NaN
+2023-01-05        21.544660  ...               NaN
+2023-01-06        19.204452  ...               NaN
+
+[5 rows x 10 columns]
+2025-05-22 03:24:01,961 - __main__ - INFO - macro_features:128 - Tail:
+            VIX_Close_level  ...  FEDFUNDS_chg_66d
+2023-05-15        18.477267  ...              0.25
+2023-05-16        16.040754  ...              0.25
+2023-05-17        15.598691  ...              0.25
+2023-05-18        18.566951  ...              0.25
+2023-05-19        16.836323  ...              0.25
+
+[5 rows x 10 columns]
+2025-05-22 03:24:01,961 - __main__ - INFO - macro_features:132 - 
+Test 2: Generating macro features with custom config...
+2025-05-22 03:24:01,961 - __main__ - INFO - macro_features:46 - Generating macro features using config: {'VIX_Close': {'type': 'level', 'lags': [1, 3], 'add_rolling_stats': True}, 'SP500_Close': {'type': 'returns', 'windows': [1, 5, 10]}, 'NonExistentCol': {'type': 'level', 'lags': [1]}}
+2025-05-22 03:24:01,961 - __main__ - DEBUG - macro_features:56 - Processing series: VIX_Close, type: level
+2025-05-22 03:24:01,974 - __main__ - DEBUG - macro_features:56 - Processing series: SP500_Close, type: returns
+2025-05-22 03:24:01,977 - __main__ - WARNING - macro_features:50 - Series 'NonExistentCol' not found in cleaned_data. Skipping.
+2025-05-22 03:24:01,978 - __main__ - INFO - macro_features:91 - Generated macro features DataFrame with shape: (100, 10)
+2025-05-22 03:24:01,978 - __main__ - INFO - macro_features:146 - Macro features (custom config) generated. Shape: (100, 10)
+2025-05-22 03:24:01,989 - __main__ - INFO - macro_features:147 - Head:
+            VIX_Close_level  ...  SP500_Close_ret_10d
+2023-01-02        15.285464  ...                  NaN
+2023-01-03        23.213206  ...                  NaN
+2023-01-04        20.286763  ...                  NaN
+2023-01-05        21.544660  ...                  NaN
+2023-01-06        19.204452  ...                  NaN
+
+[5 rows x 10 columns]
+2025-05-22 03:24:01,989 - __main__ - INFO - macro_features:151 - Correctly skipped 'NonExistentCol'.
+2025-05-22 03:24:01,989 - __main__ - INFO - macro_features:161 - 
+Test 3: Testing with empty DataFrame input...
+2025-05-22 03:24:01,990 - __main__ - WARNING - macro_features:35 - Input cleaned_data is empty. Cannot generate macro features.
+2025-05-22 03:24:01,990 - __main__ - INFO - macro_features:164 - Empty DataFrame input handled correctly.
+2025-05-22 03:24:01,990 - __main__ - INFO - macro_features:167 - 
+Test 4: Testing with DataFrame without DatetimeIndex...
+2025-05-22 03:24:01,990 - __main__ - ERROR - macro_features:38 - cleaned_data must have a DatetimeIndex.
+2025-05-22 03:24:01,991 - __main__ - INFO - macro_features:171 - DataFrame without DatetimeIndex handled correctly.
+2025-05-22 03:24:01,991 - __main__ - INFO - macro_features:173 - --- macro_features.py tests complete ---

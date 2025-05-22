@@ -1,0 +1,43 @@
+# Configuration file for the Yield Curve Relative Value Trading System
+
+data_settings:
+  fred_api_key: "df2de59d691115cec25d648d66e1f40c" # Replace with your actual FRED API key
+  yahoo_api_info:
+    default_user_agent: "MyYieldCurveProject/1.0" # Example user agent for Yahoo Finance
+  default_start_date: "2010-01-01"
+  default_end_date: "2023-12-31"
+  data_raw_path: "data/raw/"
+  data_interim_path: "data/interim/"
+  data_processed_path: "data/processed/"
+
+model_settings:
+  xgboost_params:
+    n_estimators: 100
+    learning_rate: 0.1
+    max_depth: 3
+    objective: "reg:squarederror"
+  arima_params:
+    order: [5, 1, 0] # p, d, q
+  lstm_params:
+    epochs: 50
+    batch_size: 32
+    lookback_window: 20 # Number of past days to use as sequence for LSTM
+    lstm_units: 50
+    dropout_rate: 0.2
+  train_test_split_ratio: 0.8 # Alternatively, specify a split date: "train_end_date": "2020-12-31"
+
+signal_generation_parameters:
+  signal_threshold_bp: 0.5 # e.g., predict change > 0.5 bp to trigger a signal
+
+backtest_settings:
+  transaction_cost_per_contract: 5.0 # in dollars
+  risk_free_rate: 0.01 # for Sharpe ratio calculation (annualized)
+  initial_capital: 1000000 # for backtesting equity curve generation
+
+logging_settings:
+  log_level: "INFO" # (DEBUG, INFO, WARNING, ERROR)
+  log_file: "logs/yield_curve_strategy.log" # Path to log file
+
+output_paths:
+  trained_models_path: "models/"
+  reports_figures_path: "reports/figures/"
